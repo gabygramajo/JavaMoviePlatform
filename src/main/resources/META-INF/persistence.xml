@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--  -->
+<!-- XML Namespace -->
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+
+    <!-- Unidad de persistencia -->
     <persistence-unit name="appPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 
         <!-- Proveedor de Persistencia (Hibernate en este caso) -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Clases de Entidad a ser gestionadas por JPA -->
-        <class>org.gabydev.app.entity.Movie</class>
+        <class>org.gabydev.app.model.Movie</class>
+        <class>org.gabydev.app.model.User</class>
+        <class>org.gabydev.app.model.FavoriteMovie</class>
+        <class>org.gabydev.app.model.Category</class>
+        <class>org.gabydev.app.model.Director</class>
 
         <!-- Propiedades de Configuración -->
         <properties>

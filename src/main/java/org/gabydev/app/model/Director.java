@@ -1,8 +1,18 @@
-package org.gabydev.app.entity;
+package org.gabydev.app.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="directors")
 public class Director {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name="name")
     private String fullName;
+    @Column(name="country")
     private String nationality;
+    @Column(name="oscar")
     private Boolean oscar;
 
     public Director() {
@@ -34,8 +44,8 @@ public class Director {
 
     @Override
     public String toString() {
-        return "fullName='" + fullName + '\'' +
-                ", nationality='" + nationality + '\'' +
+        return fullName +
+                ", " + nationality +
                 ", oscar=" + oscar;
     }
 }
