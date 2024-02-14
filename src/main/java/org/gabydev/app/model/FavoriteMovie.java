@@ -5,12 +5,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "favorite_movies")
 public class FavoriteMovie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
     @ManyToOne
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
