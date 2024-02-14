@@ -7,6 +7,13 @@ import static org.gabydev.app.util.ValidateData.*;
 import javax.persistence.*;
 import java.util.List;
 
+
+/**
+ * Entidad Usuario relacionada con la tabla users
+ * @author Gabriel Gramajo
+ * @version 1.0.0
+ * @see <a href="https://github.com/gabygramajo">mi github</a>
+ */
 @Entity
 @Table(name = "users")
 public class User extends UserRepository {
@@ -62,6 +69,10 @@ public class User extends UserRepository {
         this.password = password;
     }
 
+    /**
+     * Método para actualizar su nombre completo.
+     * @param newFullName Nuevo nombre a agregar.
+     */
     public void updateFullName(String newFullName) {
         if (validateStr(newFullName, 4)) {
             setFullname(newFullName);
@@ -69,6 +80,10 @@ public class User extends UserRepository {
         }
     }
 
+   /**
+     * Método para actualizar su nickname.
+     * @param newNickname Nuevo nickname a agregar.
+     */
     public void updateNickname(String newNickname) {
         if (validateStr(newNickname, 4)) {
             setNickname(newNickname);
@@ -76,6 +91,10 @@ public class User extends UserRepository {
         }
     }
 
+   /**
+     * Método para actualizar el email.
+     * @param newEmail Nuevo email a agregar.
+     */
     public void updateEmail(String newEmail) {
         if (validateEmail(newEmail)) {
             setEmail(newEmail);
@@ -85,6 +104,10 @@ public class User extends UserRepository {
         }
     }
 
+   /**
+     * Método para actualizar la contraseña.
+     * @param newPassword Nueva contraseña a agregar.
+     */
     public void updatePassword(String newPassword) {
         if (validatePassword(newPassword)) {
             setPassword(newPassword);
@@ -94,10 +117,18 @@ public class User extends UserRepository {
         }
     }
 
+    /**
+     * Método para obtener todas las películas en la lista de favoritos.
+     * @return retorna una Lista de tipo Movie o null en caso de se haya encontrado.
+     */
     public List<Movie> getMyFavoriteMovies() {
         return getFavoriteMovies(this.fullname);
     }
 
+    /**
+     * Método para agregar una nueva película a la lista de favoritos.
+     * @param idMovie Identificador de la película a agregar.
+     */
     public void addToFavoriteMovieList(int idMovie) {
 
         FavoriteMovie movieToAdd = new FavoriteMovie();
@@ -107,6 +138,10 @@ public class User extends UserRepository {
         addFavoriteMovie(movieToAdd);
     }
 
+    /**
+     * Método para eliminar una película a la lista de favoritos.
+     * @param idMovie Identificador de la película a eliminar.
+     */
     public void deleteFavoriteMovieToList(int idMovie) {
         deleteFavoriteMovie(idMovie);
     }
