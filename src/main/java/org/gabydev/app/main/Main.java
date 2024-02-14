@@ -1,25 +1,25 @@
 package org.gabydev.app.main;
 
-import org.gabydev.app.model.Genre;
-import org.gabydev.app.model.Movie;
-import org.gabydev.app.repository.ISearchRepository;
-import org.gabydev.app.repository.MovieRepository;
 
-import java.util.List;
+import org.gabydev.app.model.User;
 
 public class Main {
     public static void main(String[] args) {
 
-        ISearchRepository<Movie> movieRepository = new MovieRepository();
+        User user = User.getUserById(2);
 
-        // buscar por director
-        List<Movie> movieList = movieRepository.findByDirector("Christopher Nolan");
-        System.out.println("---- BUSCAR por Director ----");
-        movieList.forEach(System.out::println);
+        System.out.println(user);
 
-        // buscar por genero
-        movieList = movieRepository.findByGenre(Genre.ACTION.getGenre());
-        System.out.println("---- BUSCAR por Género ----");
-        movieList.forEach(System.out::println);
+//        user.deleteFavoriteMovie(12);
+
+        user.deleteFavoriteMovie(13);
+
+//        user.updateFullName("Emily Davis");
+//        user.updateNickname("Emily");
+//        user.updateEmail("emily_davise@mail.com");
+//        user.updatePassword("P@ss123456");
+
+//        System.out.println("Movies");
+//        user.getMyFavoriteMovies().forEach(System.out::println);
     }
 }
