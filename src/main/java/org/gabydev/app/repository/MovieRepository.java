@@ -1,30 +1,48 @@
 package org.gabydev.app.repository;
 
 import org.gabydev.app.model.Movie;
+import org.gabydev.app.model.User;
 import org.gabydev.app.util.UtilEntity;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
+/**
+ * Repositorio con los métodos para realizar búsquedas de películas mediante la clase {@link User}.
+ * @author Gabriel Gramajo
+ * @version 1.0.0
+ * @see <a href="https://github.com/gabygramajo">mi github</a>
+ */
 public abstract class MovieRepository implements ISearchRepository<Movie> {
 
     public MovieRepository() {
     }
 
-    // Connection a la BD
+    /**
+     * Método para conectar a la Base de datos.
+     * @return devuelve un objeto EntityManager para realizar operaciones con la Base de datos
+     */
     private EntityManager getConnection() {
         return UtilEntity.getEntityManager();
     }
 
+    /**
+     * Devuelve el catálogo completo de películas
+     * @return retorna una Lista de tipo Movie.
+     */
     @Override
     public List<Movie> findAll() {
+
         return getConnection()
                 .createQuery("SELECT m FROM Movie m", Movie.class)
                 .getResultList();
-        // Consulta HQL mediante la interfaz EntityManager
-        // HQL no es sensible a mayúsculas/minúsculas (sólo para los nombres de clases y propiedades)
     }
 
+    /**
+     * Devuelve una película mediante su ID.
+     * @param id identificador de la Película a encontrar.
+     * @return retorna un Objeto de tipo Movie o null en caso de se haya encontrado.
+     */
     @Override
     public Movie findMovieById(Integer id) {
         String query = "SELECT m FROM Movie m WHERE m.id = :id" ;
@@ -34,6 +52,11 @@ public abstract class MovieRepository implements ISearchRepository<Movie> {
                 .getSingleResult();
     }
 
+    /**
+     * Devuelve todas las películas que tengan el mismo director.
+     * @param name nombre del director.
+     * @return retorna una lista con Objetos de tipo Movie o null en caso de se haya encontrado.
+     */
     @Override
     public List<Movie> findByDirector(String name) {
         String query = "SELECT m FROM Movie m " +
@@ -46,6 +69,11 @@ public abstract class MovieRepository implements ISearchRepository<Movie> {
                 .getResultList();
     }
 
+    /**
+     * Devuelve todas las películas que tengan sean del mismo género.
+     * @param genre nombre del género de películas a encontrar.
+     * @return retorna una lista con Objetos de tipo Movie o null en caso de se haya encontrado.
+     */
     @Override
     public List<Movie> findByGenre(String genre) {
         String query = "SELECT m FROM Movie m " +

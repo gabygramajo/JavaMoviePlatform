@@ -9,6 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import java.util.List;
 
+/**
+ * Repositorio con los métodos para realizar las acciones del Usuario {@link User}.
+ * @author Gabriel Gramajo
+ * @version 1.0.0
+ * @see <a href="https://github.com/gabygramajo">mi github</a>
+ */
 public abstract class UserRepository extends MovieRepository implements IUserRepository{
 
     public UserRepository() {
@@ -18,7 +24,11 @@ public abstract class UserRepository extends MovieRepository implements IUserRep
         return UtilEntity.getEntityManager();
     }
 
-
+    /**
+     * Obtener un usuario mediante su Identificador.
+     * @param id Identificador del usuario a encontrar.
+     * @return Retorna un objeto de tipo User o null en caso de se haya encontrado.
+     */
     public static User getUserById(Integer id) {
         return getConnection()
                 .createQuery("SELECT u FROM User u WHERE u.id = :id", User.class)
@@ -26,6 +36,10 @@ public abstract class UserRepository extends MovieRepository implements IUserRep
                 .getSingleResult();
     }
 
+    /**
+     * Actualiza los datos del usuario con su nombre, nickname, email o password en la Base de Datos.
+     * @param user Usuario con los datos a actualizar.
+     */
     @Override
     public void updateUserData(User user) {
 
@@ -37,6 +51,11 @@ public abstract class UserRepository extends MovieRepository implements IUserRep
 
     }
 
+    /**
+     * Devuelve la lista de películas favoritas del usuario.
+     * @param name Nombre del usuario
+     * @return retorna una Lista de tipo Movie o null en caso de se haya encontrado.
+     */
     @Override
     public List<Movie> getFavoriteMovies(String name) {
         String query = "SELECT f.movie " +
@@ -50,6 +69,11 @@ public abstract class UserRepository extends MovieRepository implements IUserRep
                 .getResultList();
     }
 
+    /**
+     * Método para agregar una película a la lista de favoritos y agregarlo a la BD.
+     * @param movieToAdd Obj con la película y usuario
+     * @throws PersistenceException Lanza la PersistenceException en caso de que la película ya exista.
+     */
     @Override
     public void addFavoriteMovie(FavoriteMovie movieToAdd) {
         EntityManager em = getConnection();
@@ -63,6 +87,11 @@ public abstract class UserRepository extends MovieRepository implements IUserRep
         }
     }
 
+    /**
+     * Método para Eliminar una película a la lista de favoritos y de la BD.
+     * @param movieId Identificador de la película a borrar.
+     * @throws IllegalArgumentException Lanza la IllegalArgumentException en caso de que la película no exista en la lista de favoritos.
+     */
     @Override
     public void deleteFavoriteMovie(int movieId) {
         EntityManager em = getConnection();
