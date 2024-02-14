@@ -1,3 +1,4 @@
 .idea
 target
-META-INF/
+META-INF
+persistence.xml
