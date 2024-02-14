@@ -1,20 +1,18 @@
 package org.gabydev.app.repository;
 
+import org.gabydev.app.model.FavoriteMovie;
 import org.gabydev.app.model.Movie;
+import org.gabydev.app.model.User;
 
-public interface IUserRepository {
+import java.util.List;
 
-    void updateFullname(String newFullName);
+public interface IUserRepository{
 
-    void updateNickname(String newNickname);
+    void updateUserData(User user);
 
-    void updateEmail(String newEmail);
+    List<Movie> getFavoriteMovies(String name);
 
-    void updatePassword(String newPassword);
+    void addFavoriteMovie(FavoriteMovie movieToAdd);
 
-    String getFavoriteMovies();
-
-    void addFavoriteMovies(Movie m);
-
-    void deleteFavoriteMovies(Movie m);
+    void deleteFavoriteMovie(int movieId);
 }

@@ -6,7 +6,7 @@ public interface ISearchRepository<T> {
 
     List<T> findAll();
 
-    T getById(Integer id);
+    T findMovieById(Integer id);
 
     List<T> findByDirector(String name);
 

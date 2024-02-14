@@ -6,7 +6,7 @@ import org.gabydev.app.util.UtilEntity;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class MovieRepository implements ISearchRepository<Movie> {
+public abstract class MovieRepository implements ISearchRepository<Movie> {
 
     public MovieRepository() {
     }
@@ -26,7 +26,7 @@ public class MovieRepository implements ISearchRepository<Movie> {
     }
 
     @Override
-    public Movie getById(Integer id) {
+    public Movie findMovieById(Integer id) {
         String query = "SELECT m FROM Movie m WHERE m.id = :id" ;
         return getConnection()
                 .createQuery(query, Movie.class)
