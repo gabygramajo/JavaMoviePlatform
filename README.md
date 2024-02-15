@@ -9,10 +9,14 @@ En este proyecto tuve como objetivo simular algunas funciones que tiene un usuar
 - Tener una lista de favoritos y poder agregar o quitar películas. 
 
 ### Tecnologías usadas
-- Java 17.
-- JPA + Hibernate.
-- Maven.
-- MySQL, como Base de datos, [Descargar Script SQL](resources/StructureDataMoviePlatform.sql).
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
+	![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+- [Descargar Script SQL](resources/StructureDataMoviePlatform.sql).
 
 ### ¿Qué aprendí?
  
