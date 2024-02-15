@@ -12,12 +12,13 @@ En este proyecto tuve como objetivo simular algunas funciones que tiene un usuar
 - Java 17.
 - JPA + Hibernate.
 - Maven.
-- MySQL, como Base de datos.
+- MySQL, como Base de datos, [Descargar Script SQL](resources/StructureDataMoviePlatform.sql).
 
 ### ¿Qué aprendí?
  
 En este proyecto sin duda he logrado poner en práctica muchísimos conceptos y entre los más destacables fue el uso del paradigma de POO, crear, conectar y modificar una Base de Datos utilizando un ORM, implementar el patrón Repository, el uso de Maven y sobre todo el de superar el Síndrome del impostor, comprendiendo que haciendo es como uno aprende.
 
 ## Diagrama UML
-
+!["Diagrama ERD"](resources/moviePlatformUML.drawio.png)
 ## Diagrama ERD
+!["Diagrama ERD"](resources/MySQL_ERD.png)

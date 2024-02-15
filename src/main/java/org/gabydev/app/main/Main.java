@@ -35,10 +35,10 @@ public class Main {
         System.out.println(user);
 
         // Modificar datos
-        user.updateFullName("Emily Lucy Davis");
-        user.updateNickname("LucyEmily");
-        user.updateEmail("emily_Lucy@mail.com");
-        user.updatePassword("P@ss123456");
+        user.updateFullName("Andrea González");
+        user.updateNickname("Andrea");
+        user.updateEmail("andrea23@mail.com");
+        user.updatePassword("@Rman1212");
 
         System.out.println("\n------ Datos Actualizados ------");
         System.out.println(user);
@@ -48,6 +48,7 @@ public class Main {
         user.getMyFavoriteMovies()
                 .forEach(System.out::println);
 
+        user.deleteFavoriteMovie(11);
         // Agregar películas a la Lista de favoritos
         user.addToFavoriteMovieList(11);
         user.addToFavoriteMovieList(27);
