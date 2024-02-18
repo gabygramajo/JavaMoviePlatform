@@ -4,7 +4,7 @@ import org.gabydev.app.repository.UserRepository;
 
 import static org.gabydev.app.util.ValidateData.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 

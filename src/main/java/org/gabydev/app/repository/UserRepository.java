@@ -5,8 +5,8 @@ import org.gabydev.app.model.Movie;
 import org.gabydev.app.model.User;
 import org.gabydev.app.util.UtilEntity;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceException;
 import java.util.List;
 
 /**

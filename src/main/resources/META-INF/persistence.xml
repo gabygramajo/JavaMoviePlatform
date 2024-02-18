@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!-- XML Namespace -->
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <!-- Unidad de persistencia -->
+    <persistence-unit name="appPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Proveedor de Persistencia (Hibernate en este caso) -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Clases de Entidad a ser gestionadas por JPA -->
+        <class>org.gabydev.app.model.Movie</class>
+        <class>org.gabydev.app.model.User</class>
+        <class>org.gabydev.app.model.FavoriteMovie</class>
+        <class>org.gabydev.app.model.Category</class>
+        <class>org.gabydev.app.model.Director</class>
+
+        <!-- Propiedades de Configuración -->
+        <properties>
+
+            <!-- Controlador (Driver) de la Base de Datos -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/clon_netflix"/>
+            <!-- define el dialecto de la base de datos específico que Hibernate utilizará -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <!-- configura si Hibernate debe mostrar las consultas SQL ejecutadas -->
+            <property name="hibernate.show_sql" value="false" />
+
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="xxx"/>
+
+        </properties>
+
+    </persistence-unit>
+</persistence>

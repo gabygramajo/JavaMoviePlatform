@@ -35,34 +35,33 @@ public class Main {
         System.out.println(user);
 
         // Modificar datos
-        user.updateFullName("Andrea González");
-        user.updateNickname("Andrea");
-        user.updateEmail("andrea23@mail.com");
-        user.updatePassword("@Rman1212");
-
-        System.out.println("\n------ Datos Actualizados ------");
-        System.out.println(user);
+//        user.updateFullName("Andrea González");
+//        user.updateNickname("Andrea");
+//        user.updateEmail("andrea23@mail.com");
+//        user.updatePassword("@Rman1212");
+//
+//        System.out.println("\n------ Datos Actualizados ------");
+//        System.out.println(user);
 
         // Mostrar lista de películas favoritas
         System.out.println("\n------ Lista de películas favoritas ------");
         user.getMyFavoriteMovies()
                 .forEach(System.out::println);
 
-        user.deleteFavoriteMovie(11);
         // Agregar películas a la Lista de favoritos
-        user.addToFavoriteMovieList(11);
-        user.addToFavoriteMovieList(27);
+//        user.addToFavoriteMovieList(11);
+//        user.addToFavoriteMovieList(27);
 
-        System.out.println("\n------ Lista de películas favoritas Actualizada ------");
-        user.getMyFavoriteMovies()
-                .forEach(System.out::println);
+//        System.out.println("\n------ Lista de películas favoritas Actualizada ------");
+//        user.getMyFavoriteMovies()
+//                .forEach(System.out::println);
 
         // Eliminar película de la Lista de favoritos
-        user.deleteFavoriteMovie(27);
+//        user.deleteFavoriteMovie(27);
 
-        System.out.println("\n------ Lista de películas favoritas Actualizada ------");
-        user.getMyFavoriteMovies()
-                .forEach(System.out::println);
+//        System.out.println("\n------ Lista de películas favoritas Actualizada ------");
+//        user.getMyFavoriteMovies()
+//                .forEach(System.out::println);
 
     }
 }

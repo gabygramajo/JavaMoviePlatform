@@ -4,7 +4,7 @@ import org.gabydev.app.model.Movie;
 import org.gabydev.app.model.User;
 import org.gabydev.app.util.UtilEntity;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 
 /**

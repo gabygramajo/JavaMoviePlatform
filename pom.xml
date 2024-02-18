@@ -16,25 +16,18 @@
 
     <dependencies>
 
-        <!-- Permite que la aplicación se conecte y comunique con una base de datos MySQL -->
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.1.0</version>
-        </dependency>
-
-        <!-- API para la gestión de persistencia y mapeo de objetos/relacional -->
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-
         <!-- hibernate facilita la persistencia de objetos Java en una base de datos relacional -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.5.7.Final</version>
+            <version>6.2.7.Final</version>
+        </dependency>
+
+        <!-- Permite que la aplicación se conecte y comunique con una base de datos MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
         </dependency>
 
     </dependencies>

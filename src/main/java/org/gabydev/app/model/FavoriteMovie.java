@@ -1,6 +1,6 @@
 package org.gabydev.app.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "favorite_movies")
