@@ -13,7 +13,7 @@ import java.util.List;
  * @version 1.0.0
  * @see <a href="https://github.com/gabygramajo">mi github</a>
  */
-public abstract class MovieRepository implements ISearchRepository<Movie> {
+public class MovieRepository implements ISearchRepository<Movie> {
 
     public MovieRepository() {
     }

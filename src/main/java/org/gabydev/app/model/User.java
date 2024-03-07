@@ -1,5 +1,7 @@
 package org.gabydev.app.model;
 
+import org.gabydev.app.repository.ISearchRepository;
+import org.gabydev.app.repository.MovieRepository;
 import org.gabydev.app.repository.UserRepository;
 
 import static org.gabydev.app.util.ValidateData.*;
@@ -16,19 +18,20 @@ import java.util.List;
  */
 @Entity
 @Table(name = "users")
-public class User extends UserRepository {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "fullname")
-    private String fullname;
+    private String fullName;
     @Column(name = "nickname")
-    private String nickname;
+    private String nickName;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;
+
 
     public User() {
     }
@@ -37,20 +40,20 @@ public class User extends UserRepository {
         return id;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    private void setFullname(String fullname) {
-        this.fullname = fullname;
+    private void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getNickName() {
+        return nickName;
     }
 
-    private void setNickname(String nickname) {
-        this.nickname = nickname;
+    private void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getEmail() {
@@ -74,9 +77,10 @@ public class User extends UserRepository {
      * @param newFullName Nuevo nombre a agregar.
      */
     public void updateFullName(String newFullName) {
+        UserRepository userRepository = new UserRepository();
         if (validateStr(newFullName, 4)) {
-            setFullname(newFullName);
-            this.updateUserData(this);
+            setFullName(newFullName);
+            userRepository.updateUserData(this);
         }
     }
 
@@ -85,9 +89,10 @@ public class User extends UserRepository {
      * @param newNickname Nuevo nickname a agregar.
      */
     public void updateNickname(String newNickname) {
+        UserRepository userRepository = new UserRepository();
         if (validateStr(newNickname, 4)) {
-            setNickname(newNickname);
-            this.updateUserData(this);
+            setNickName(newNickname);
+            userRepository.updateUserData(this);
         }
     }
 
@@ -96,9 +101,10 @@ public class User extends UserRepository {
      * @param newEmail Nuevo email a agregar.
      */
     public void updateEmail(String newEmail) {
+        UserRepository userRepository = new UserRepository();
         if (validateEmail(newEmail)) {
             setEmail(newEmail);
-            this.updateUserData(this);
+            userRepository.updateUserData(this);
         } else {
             throw new Error("El email no es válido");
         }
@@ -109,9 +115,10 @@ public class User extends UserRepository {
      * @param newPassword Nueva contraseña a agregar.
      */
     public void updatePassword(String newPassword) {
+        UserRepository userRepository = new UserRepository();
         if (validatePassword(newPassword)) {
             setPassword(newPassword);
-            this.updateUserData(this);
+            userRepository.updateUserData(this);
         } else {
             throw new Error("Contraseña no válida, debe tener al menos un número, una minúscula, una mayúscula , un carácter especial y una longitud mayor a 8.");
         }
@@ -122,7 +129,8 @@ public class User extends UserRepository {
      * @return retorna una Lista de tipo Movie o null en caso de se haya encontrado.
      */
     public List<Movie> getMyFavoriteMovies() {
-        return getFavoriteMovies(this.fullname);
+        UserRepository userRepository = new UserRepository();
+        return userRepository.getFavoriteMovies(this.fullName);
     }
 
     /**
@@ -131,11 +139,13 @@ public class User extends UserRepository {
      */
     public void addToFavoriteMovieList(int idMovie) {
 
+        UserRepository userRepository = new UserRepository();
+        ISearchRepository<Movie> movieRepositoty = new MovieRepository();
         FavoriteMovie movieToAdd = new FavoriteMovie();
         movieToAdd.setUser(this);
-        movieToAdd.setMovie(this.findMovieById(idMovie));
+        movieToAdd.setMovie(movieRepositoty.findMovieById(idMovie));
 
-        addFavoriteMovie(movieToAdd);
+        userRepository.addFavoriteMovie(movieToAdd);
     }
 
     /**
@@ -143,14 +153,15 @@ public class User extends UserRepository {
      * @param idMovie Identificador de la película a eliminar.
      */
     public void deleteFavoriteMovieToList(int idMovie) {
-        deleteFavoriteMovie(idMovie);
+        UserRepository userRepository = new UserRepository();
+        userRepository.deleteFavoriteMovie(idMovie);
     }
 
     @Override
     public String toString() {
         return "id=" + id +
-                ", fullname= " + fullname +
-                ", nickname= " + nickname +
+                ", fullname= " + fullName +
+                ", nickname= " + nickName +
                 ", email= " + email +
                 ", password= " + password;
     }

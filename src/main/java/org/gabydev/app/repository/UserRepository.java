@@ -15,7 +15,7 @@ import java.util.List;
  * @version 1.0.0
  * @see <a href="https://github.com/gabygramajo">mi github</a>
  */
-public abstract class UserRepository extends MovieRepository implements IUserRepository{
+public class UserRepository implements IUserRepository{
 
     public UserRepository() {
     }
@@ -61,7 +61,7 @@ public abstract class UserRepository extends MovieRepository implements IUserRep
         String query = "SELECT f.movie " +
                 "FROM FavoriteMovie f " +
                 "JOIN f.user u " +
-                "WHERE u.fullname = :name";
+                "WHERE u.fullName = :name";
 
         return getConnection()
                 .createQuery(query, Movie.class)
