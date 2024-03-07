@@ -1,67 +1,51 @@
 package org.gabydev.app.main;
 
 import org.gabydev.app.model.Genre;
-import org.gabydev.app.model.Movie;
 import org.gabydev.app.model.User;
+import org.gabydev.app.repository.MovieRepository;
+import org.gabydev.app.repository.UserRepository;
 
 public class Main {
     public static void main(String[] args) {
 
-        User user = User.getUserById(3);
+        MovieRepository movieRepository = new MovieRepository();
+        User user = UserRepository.getUserById(3);
 
-        // Listar catálogo
-        System.out.println("------ Catálogo de películas ------");
-        user.findAll()
-                .forEach(System.out::println);
+        System.out.println("--------- All Movies ---------");
+        movieRepository.findAll().forEach(System.out::println);
 
-        // Encontrar película por id
-        System.out.println("\n------ Película por id ------");
-        Movie movie = user.findMovieById(16);
-        System.out.println("movie: " + movie);
+        System.out.println("\n--------- Movies by id ---------");
+        System.out.println(movieRepository.findMovieById(3));
 
-        // Listar películas por director
-        System.out.println("\n------ Película por director ------");
-        String director = movie.getDirector().getFullName();
-        user.findByDirector(director)
-                .forEach(System.out::println);
+        System.out.println("\n--------- Movies by Director ---------");
+        System.out.println(movieRepository.findByDirector("Christopher Nolan"));
 
-        // Listar películas por género
-        System.out.println("\n------ Película por género ------");
-        user.findByGenre(Genre.ACTION.getGenre())
-                .forEach(System.out::println);
+        System.out.println("\n--------- Movies by Genre ---------");
+        System.out.println(movieRepository.findByGenre(Genre.ACTION.getGenre()));
 
-        // Usuario a modificar
-        System.out.println("\n------ User a modificar ------");
+        System.out.println("\n--------- User ---------");
         System.out.println(user);
 
-        // Modificar datos
-//        user.updateFullName("Andrea González");
-//        user.updateNickname("Andrea");
-//        user.updateEmail("andrea23@mail.com");
-//        user.updatePassword("@Rman1212");
-//
-//        System.out.println("\n------ Datos Actualizados ------");
+//        System.out.println("\n--------- Update User ---------");
+//        user.updateFullName("Shekina Valverde");
+//        user.updateNickname("Sheki");
+//        user.updateEmail("shekini@mail.com");
+//        user.updatePassword("#SheniX456");
 //        System.out.println(user);
 
-        // Mostrar lista de películas favoritas
-        System.out.println("\n------ Lista de películas favoritas ------");
-        user.getMyFavoriteMovies()
-                .forEach(System.out::println);
+        System.out.println("\n--------- User - Favorite Movies ---------");
+        user.getMyFavoriteMovies().forEach(System.out::println);
 
-        // Agregar películas a la Lista de favoritos
-//        user.addToFavoriteMovieList(11);
-//        user.addToFavoriteMovieList(27);
+//        System.out.println("\n--------- User - Delete Favorite Movies ---------");
+//        user.deleteFavoriteMovieToList(10);
+//        user.deleteFavoriteMovieToList(25);
+//        user.deleteFavoriteMovieToList(11);
 
-//        System.out.println("\n------ Lista de películas favoritas Actualizada ------");
-//        user.getMyFavoriteMovies()
-//                .forEach(System.out::println);
+//        System.out.println("\n--------- User - Add Favorite Movies ---------");
+//        user.addToFavoriteMovieList(17);
+//        user.addToFavoriteMovieList(7);
 
-        // Eliminar película de la Lista de favoritos
-//        user.deleteFavoriteMovie(27);
-
-//        System.out.println("\n------ Lista de películas favoritas Actualizada ------");
-//        user.getMyFavoriteMovies()
-//                .forEach(System.out::println);
+        user.getMyFavoriteMovies().forEach(System.out::println);
 
     }
 }
