@@ -48,7 +48,7 @@ public class FavoriteMovie {
     @Override
     public String toString() {
         return id +
-                ", user: " + user.getFullname() +
+                ", user: " + user.getFullName() +
                 ", movie: " + movie.getTitle();
     }
 }
